@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, TextInput } from 'react-native';
+import { ScrollView, StyleSheet, TextInput } from 'react-native';
 
 import PlaylistVideoItem from '@/components/PlaylistVideoItem';
 import { ThemedText } from '@/components/ThemedText';
@@ -23,9 +23,7 @@ export default function TabThreeScreen() {
         <TextInput style={{fontSize:14, color:'#93AEB5', borderRadius:4, fontFamily:'Montserrat_500Medium', backgroundColor:'#55373722', marginHorizontal:10, paddingHorizontal:10}} value={searchInputValue} onChangeText={setSearchInputValue} onFocus={() => {if(searchInputValue == "Search for a Video") setSearchInputValue("")}} onBlur={() => {if(searchInputValue == "") setSearchInputValue("Search for a Video")}}/>
         <ScrollView
           contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
         >
-          <Text style={{color:'#fff', width:'100%', marginTop:20}}>Results :</Text>
           {mockVideosService.getAll().map(
             video => <PlaylistVideoItem key={video.YoutubeId} title={shorten(video.title, 50)} videoId={video.YoutubeId} duration={video.duration}/>
           )}
@@ -53,11 +51,12 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   scrollContent: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
+    width:'100%',
     columnGap: 10,
     rowGap: 10,
     paddingHorizontal: 10,
     paddingBottom: 20,
+    marginTop:20
   },
 });
