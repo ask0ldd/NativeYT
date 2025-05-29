@@ -16,9 +16,12 @@ export default function PlaylistVideoItem({ videoId, title, duration } : { video
                             source={{ uri: `https://img.youtube.com/vi/${videoId}/default.jpg` }}
                             style={{ flex: 1, borderRadius:4 }}
                         />
-                        <Text style={{position :'absolute', bottom : 4, right : 4, backgroundColor: '#00000099', borderRadius:4, paddingHorizontal:8, paddingVertical : 2, color : '#93AEB5', fontSize:10, lineHeight:20}}>{parseISODuration(duration)}</Text>
+                        <Text style={{position :'absolute', bottom : 4, right : 4, backgroundColor: '#00000066', borderRadius:4, paddingHorizontal:8, paddingVertical : 2, color : '#93AEB5', fontSize:10, lineHeight:20}}>{parseISODuration(duration)}</Text>
                     </View>
-                    <Text style={{color:'#93AEB5', fontSize:12, lineHeight:20, flex : 1, flexWrap: 'wrap'}}>{title}</Text>
+                    <View style={{flexDirection:'column', width:'65%', flexShrink:1}}>
+                        <Text style={{color:'#FFFFFFcc', fontSize:14, lineHeight:20, flexWrap: 'wrap'}}>{title}</Text>
+                        <Text style={{color:'#93AEB5', fontSize:12, flexWrap: 'wrap', marginTop:4}}>254K views - 2 hours ago</Text>
+                    </View>
                 </Pressable>
             </Link>
         </View>
