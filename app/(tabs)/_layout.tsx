@@ -54,6 +54,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color } : {color : string}) => <IconSymbol size={28} name="chevron.right" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="three"
+        options={{
+          title: 'Three',
+          tabBarIcon: ({ color } : {color : string}) => <IconSymbol size={28} name="chevron.right" color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
