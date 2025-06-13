@@ -1,6 +1,6 @@
-import { Suzanne } from "@/components/3d/Suzanne";
+import { HighSuzanne } from "@/components/3d/HighSuzanne";
 import { ThemedView } from "@/components/ThemedView";
-import { OrbitControls } from "@react-three/drei/native";
+import { Environment, OrbitControls } from "@react-three/drei/native";
 import { Canvas } from "@react-three/fiber/native";
 import { Suspense } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
@@ -27,15 +27,16 @@ export default function TabFourScreen() {
                     intensity={Math.PI * 2}
                 />
                 <Suspense fallback={null}>
-                    <Suzanne />
+                    <HighSuzanne />
                     <mesh
                         receiveShadow
                         rotation={[-Math.PI / 2, 0, 0]}
                         position={[0, -1, 0]}
                     >
-                    <planeGeometry args={[10, 10]} />
-                    <shadowMaterial opacity={0.5} />
+                        <planeGeometry args={[10, 10]} />
+                        <shadowMaterial opacity={0.5} />
                     </mesh>
+                    <Environment preset="dawn" />
                 </Suspense>
                 <OrbitControls enableZoom={false} />
             </Canvas>
